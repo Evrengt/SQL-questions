@@ -1,0 +1,12 @@
+WITH rws AS
+(
+  SELECT 
+   e.employee_id,   e.department_id,   d.location id AS prev_dep
+ FROM employees e , location id d 
+WHERE d e.department_id = d.department_id
+AND       e e.location_id = d.location id
+)
+
+SELECT 
+   employee_id,  department_id,   location_id AS current_dep , sd.prev_dep
+ FROM rws;

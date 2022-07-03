@@ -1,0 +1,8 @@
+WITH cteRowNum AS (
+    SELECT DeptID, EmpName, Salary,
+           ROW_NUMBER() OVER(PARTITION BY DeptID ORDER BY Salary DESC) AS RowNum
+        FROM EmpDetails
+)
+SELECT DeptID, EmpName, Salary,Rownum
+    FROM cteRowNum
+    WHERE RowNum in(1);
